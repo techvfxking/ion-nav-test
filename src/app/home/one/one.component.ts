@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TwoComponent } from '../two/two.component';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-one',
@@ -7,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OneComponent  implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private nvCtrl: NavController
+  ) { }
+  component = TwoComponent
   ngOnInit() {}
 
+  async Navigate(){
+    await this.nvCtrl.navigateForward(['/home/two',{
+      data: JSON.stringify('Hello')
+    }]);
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-two',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TwoComponent  implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    var value = this.route.snapshot.params['data'];
+    console.log(value);
+  }
 
 }
