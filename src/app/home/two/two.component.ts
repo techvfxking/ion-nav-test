@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-two',
@@ -9,12 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 export class TwoComponent  implements OnInit {
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private nav: NavController
   ) { }
 
   ngOnInit() {
-    var value = this.route.snapshot.params['data'];
-    console.log(value);
+    const state = this.route.snapshot.data['state'];
+  const id = state.id;
+  console.log(id);
+    
   }
 
 }
